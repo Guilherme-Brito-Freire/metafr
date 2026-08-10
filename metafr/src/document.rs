@@ -1,28 +1,20 @@
-
-/*
-pub struct Node{
-    head_tag: String,
-    end_tag: String,
-    children: Vec<Node>,
-    content: String
-}
-*/
+use crate::ast::Node;
 
 pub struct Document{
     header: String,
     footer: String,
-    content: String // The middle rendered
+    content: Node // The middle rendered
 }
 
 impl Document {
-    pub fn render(&self) -> String {
+    pub fn render(self) -> String {
         // Render the code and return a string
-        let rendered: String =  format!("{}{}{}",self.header,self.content,self.footer);
+        let rendered: String =  format!("{}{}{}",self.header,self.content.render(),self.footer);
         rendered
     }
 }
 
-pub fn create_document() -> Document {
+pub fn create_document(node: Node) -> Document {
     let doc = Document {
         header: "
 <!DOCTYPE html>
@@ -33,11 +25,9 @@ pub fn create_document() -> Document {
     <title>Document</title>
 </head>
         ".to_string(),
-         content: "
-         
-         <h1>Hello World!</h1>
 
-         ".to_string(),
+         content: node,
+
          footer: "
 </body>
 </html>
