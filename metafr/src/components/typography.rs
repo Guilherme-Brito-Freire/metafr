@@ -14,6 +14,7 @@ pub fn typography_create() -> Typography {
             head_tag: "<h1>".to_string(),
             content: "".to_string(),
             end_tag: "</h1>".to_string(),
+            children: None
         }),
     }
 }

@@ -1,6 +1,7 @@
 use metafr::{Page, document::{Document, create_document}, get, start };
 use metafr::components::{
-    typography
+    typography,
+    scope
 };
 use metafr::Html;
 
@@ -12,8 +13,14 @@ fn main() {
             method: get(|| async { 
                 // Home page!
                 let home: Document = create_document(
-                    typography::typography_create()
-                    .set_text("Hello Guilherme")
+                    scope::scope_create()
+                    .set_children(
+                    vec![
+                        typography::typography_create()
+                        .set_text("Hello World!")
+                        .build()
+                    ]
+                )
                     .build()
                 );
 

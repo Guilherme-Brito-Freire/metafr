@@ -2,6 +2,7 @@ pub struct Node {
     pub(crate) head_tag: String,
     pub(crate) end_tag: String,
     pub(crate) content: String,
+    pub(crate) children: Option<Vec<Node>>
 }
 
 impl Node{
