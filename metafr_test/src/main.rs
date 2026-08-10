@@ -1,4 +1,7 @@
-use metafr::{Page, ast::typography_create, document::{Document, create_document}, get, start };
+use metafr::{Page, document::{Document, create_document}, get, start };
+use metafr::components::{
+    typography
+};
 use metafr::Html;
 
 fn main() {
@@ -9,18 +12,13 @@ fn main() {
             method: get(|| async { 
                 // Home page!
                 let home: Document = create_document(
-                    typography_create()
+                    typography::typography_create()
                     .set_text("Hello Guilherme")
                     .build()
                 );
 
                 Html(home.render())
             }),
-
-        },
-        Page {
-            path: "/sobre".to_string(),
-            method: get(|| async { "Sobre a Empresa" }),
         }
     ];
 
