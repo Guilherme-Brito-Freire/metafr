@@ -18,6 +18,10 @@ fn main() {
                     vec![
                         typography::typography_create()
                         .set_text("Hello World!")
+                        .build(),
+
+                        typography::typography_create()
+                        .set_text("Hello Guilherme!")
                         .build()
                     ]
                 )

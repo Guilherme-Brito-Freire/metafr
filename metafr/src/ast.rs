@@ -6,7 +6,7 @@ pub struct Node {
 }
 
 impl Node{
-    pub fn render(self) -> String{
+    pub fn render(&self) -> String{
         format!("{}{}{}",self.head_tag,self.content,self.end_tag)
     }
 }

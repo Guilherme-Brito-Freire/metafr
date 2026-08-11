@@ -27,8 +27,9 @@ impl Scope {
     pub fn build(mut self) -> Node {
         let mut content: String = String::new();
         for item in &self.children{
-            content.push_str();
+            content.push_str(&item.render());
         }
+        self.node.content = content;
         self.node.children = Some(self.children);
         self.node
     }
