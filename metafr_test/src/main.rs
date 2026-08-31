@@ -1,9 +1,9 @@
-use metafr::{Page, document::{Document, create_document}, get, start };
 use metafr::components::{
     typography,
     scope
 };
-use metafr::Html;
+use metafr::document::{Document, create_document};
+use metafr::{Html, Page, get, start};
 
 fn main() {
 

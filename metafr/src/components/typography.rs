@@ -1,4 +1,5 @@
 use crate::ast::Node;
+use crate::param::Param;
 
 pub struct Typography {
     text: String,
@@ -11,10 +12,11 @@ pub fn typography_create() -> Typography {
             "Hello World!".to_string()
         ),
         node: (Node {
-            head_tag: "<h1>".to_string(),
+            head_tag: "<h1".to_string(),
             content: "".to_string(),
             end_tag: "</h1>".to_string(),
-            children: None
+            children: None,
+            params: vec![],
         }),
     }
 }
@@ -23,6 +25,11 @@ impl Typography {
 
     pub fn set_text(mut self, text: &str) -> Typography {
         self.text=text.to_string();
+        self
+    }
+
+    pub fn set_params(mut self, params: Vec<Param>) -> Typography {
+        self.node.params = params;
         self
     }
 
