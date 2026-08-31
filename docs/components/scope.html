@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope Component - Metafr Documentation</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">Metafr</a>
+            </div>
+            <nav>
+                <a href="../index.html">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="layout-container" style="min-height: 80vh;">
+        <aside class="sidebar">
+            <div class="sidebar-title">Documentation</div>
+            <ul class="sidebar-menu">
+                <li><a href="../index.html">Overview</a></li>
+            </ul>
+            <div class="sidebar-title">Components</div>
+            <ul class="sidebar-menu">
+                <li><a href="scope.html" class="active">Scope</a></li>
+                <li><a href="typography.html">Typography</a></li>
+            </ul>
+            <div class="sidebar-title" style="margin-top: 12px;">Params</div>
+            <ul class="sidebar-menu">
+                <li><a href="../params/cssInline/index.html">CSS Inline</a></li>
+                <li><a href="../params/cssInline/tags.html" style="padding-left: 20px; font-size: 0.85rem;">↳ All Tags</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section class="content-section">
+                <h2>Scope Component</h2>
+                <p>The <code>Scope</code> component is a foundational layout building block in Metafr. It maps directly to an HTML <code>&lt;div&gt;</code> element and acts as a container for other nodes (components).</p>
+                
+                <h3 style="margin-top: 24px; margin-bottom: 12px;">Usage</h3>
+                <p>To use the Scope component, utilize the builder pattern starting with <code>scope_create()</code>.</p>
+                
+                <div class="code-block">
+<pre><code>use metafr::components::scope;
+use metafr::components::typography;
+
+let my_scope = scope::scope_create()
+    .set_children(vec![
+        typography::typography_create()
+            .set_text("Child 1")
+            .build(),
+        typography::typography_create()
+            .set_text("Child 2")
+            .build()
+    ])
+    .build();
+</code></pre>
+                </div>
+
+                <h3 style="margin-top: 32px; margin-bottom: 12px;">Methods</h3>
+                <ul class="feature-list">
+                    <li><strong><code>scope_create() -&gt; Scope</code></strong>: Initializes a new Scope builder with an empty <code>&lt;div&gt;</code> structure.</li>
+                    <li><strong><code>set_children(self, children: Vec&lt;Node&gt;) -&gt; Scope</code></strong>: Sets the child nodes that will be rendered inside this container.</li>
+                    <li><strong><code>set_params(self, params: Vec&lt;Param&gt;) -&gt; Scope</code></strong>: Applies HTML attributes (like class, id, style) to the underlying <code>&lt;div&gt;</code> element.</li>
+                    <li><strong><code>build(self) -&gt; Node</code></strong>: Finalizes the component, rendering children to HTML and returning a generic <code>Node</code> ready to be injected into a <code>Document</code> or another <code>Scope</code>.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Metafr Project. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

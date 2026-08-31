@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Style Tags - Metafr Documentation</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .tags-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+            margin-bottom: 32px;
+        }
+        .tag-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .tag-card strong {
+            color: var(--primary-color);
+        }
+        .tag-card small {
+            display: block;
+            color: #6b7280;
+            margin-top: 4px;
+            font-size: 0.75rem;
+        }
+        h4 {
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html">Metafr</a>
+            </div>
+            <nav>
+                <a href="../../index.html">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="layout-container" style="min-height: 80vh;">
+        <aside class="sidebar">
+            <div class="sidebar-title">Documentation</div>
+            <ul class="sidebar-menu">
+                <li><a href="../../index.html">Overview</a></li>
+            </ul>
+            <div class="sidebar-title">Components</div>
+            <ul class="sidebar-menu">
+                <li><a href="../../components/scope.html">Scope</a></li>
+                <li><a href="../../components/typography.html">Typography</a></li>
+            </ul>
+            <div class="sidebar-title" style="margin-top: 12px;">Params</div>
+            <ul class="sidebar-menu">
+                <li><a href="index.html">CSS Inline</a></li>
+                <li><a href="tags.html" class="active" style="padding-left: 20px; font-size: 0.85rem;">↳ All Tags</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section class="content-section">
+                <h2>All CSS Style Tags</h2>
+                <p>Below is the complete list of strongly-typed CSS properties available in the <code>StyleTag</code> enum. The framework automatically converts these from CamelCase to their kebab-case CSS equivalents.</p>
+
+                
+                <h4>Layout & Display</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Display</strong>
+                        <small>CSS: display</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Position</strong>
+                        <small>CSS: position</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Top</strong>
+                        <small>CSS: top</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Right</strong>
+                        <small>CSS: right</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Bottom</strong>
+                        <small>CSS: bottom</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Left</strong>
+                        <small>CSS: left</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>ZIndex</strong>
+                        <small>CSS: z-index</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Float</strong>
+                        <small>CSS: float</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Clear</strong>
+                        <small>CSS: clear</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Overflow</strong>
+                        <small>CSS: overflow</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>OverflowX</strong>
+                        <small>CSS: overflow-x</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>OverflowY</strong>
+                        <small>CSS: overflow-y</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Visibility</strong>
+                        <small>CSS: visibility</small>
+                    </div>
+                </div>
+                <h4>Box Model & Sizing</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Width</strong>
+                        <small>CSS: width</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Height</strong>
+                        <small>CSS: height</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>MinWidth</strong>
+                        <small>CSS: min-width</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>MinHeight</strong>
+                        <small>CSS: min-height</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>MaxWidth</strong>
+                        <small>CSS: max-width</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>MaxHeight</strong>
+                        <small>CSS: max-height</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Margin</strong>
+                        <small>CSS: margin</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>MarginTop</strong>
+                        <small>CSS: margin-top</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>MarginRight</strong>
+                        <small>CSS: margin-right</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>MarginBottom</strong>
+                        <small>CSS: margin-bottom</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>MarginLeft</strong>
+                        <small>CSS: margin-left</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Padding</strong>
+                        <small>CSS: padding</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>PaddingTop</strong>
+                        <small>CSS: padding-top</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>PaddingRight</strong>
+                        <small>CSS: padding-right</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>PaddingBottom</strong>
+                        <small>CSS: padding-bottom</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>PaddingLeft</strong>
+                        <small>CSS: padding-left</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BoxSizing</strong>
+                        <small>CSS: box-sizing</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AspectRatio</strong>
+                        <small>CSS: aspect-ratio</small>
+                    </div>
+                </div>
+                <h4>Flexbox</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Flex</strong>
+                        <small>CSS: flex</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FlexDirection</strong>
+                        <small>CSS: flex-direction</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FlexWrap</strong>
+                        <small>CSS: flex-wrap</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FlexFlow</strong>
+                        <small>CSS: flex-flow</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>JustifyContent</strong>
+                        <small>CSS: justify-content</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AlignItems</strong>
+                        <small>CSS: align-items</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AlignContent</strong>
+                        <small>CSS: align-content</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AlignSelf</strong>
+                        <small>CSS: align-self</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FlexGrow</strong>
+                        <small>CSS: flex-grow</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FlexShrink</strong>
+                        <small>CSS: flex-shrink</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FlexBasis</strong>
+                        <small>CSS: flex-basis</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Order</strong>
+                        <small>CSS: order</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Gap</strong>
+                        <small>CSS: gap</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>RowGap</strong>
+                        <small>CSS: row-gap</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>ColumnGap</strong>
+                        <small>CSS: column-gap</small>
+                    </div>
+                </div>
+                <h4>Grid Layout</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Grid</strong>
+                        <small>CSS: grid</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>GridTemplateColumns</strong>
+                        <small>CSS: grid-template-columns</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>GridTemplateRows</strong>
+                        <small>CSS: grid-template-rows</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>GridTemplateAreas</strong>
+                        <small>CSS: grid-template-areas</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>GridAutoColumns</strong>
+                        <small>CSS: grid-auto-columns</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>GridAutoRows</strong>
+                        <small>CSS: grid-auto-rows</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>GridAutoFlow</strong>
+                        <small>CSS: grid-auto-flow</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>GridColumn</strong>
+                        <small>CSS: grid-column</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>GridRow</strong>
+                        <small>CSS: grid-row</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>GridArea</strong>
+                        <small>CSS: grid-area</small>
+                    </div>
+                </div>
+                <h4>Colors & Backgrounds</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Color</strong>
+                        <small>CSS: color</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Opacity</strong>
+                        <small>CSS: opacity</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Background</strong>
+                        <small>CSS: background</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BackgroundColor</strong>
+                        <small>CSS: background-color</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BackgroundImage</strong>
+                        <small>CSS: background-image</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BackgroundRepeat</strong>
+                        <small>CSS: background-repeat</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BackgroundPosition</strong>
+                        <small>CSS: background-position</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BackgroundSize</strong>
+                        <small>CSS: background-size</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BackgroundAttachment</strong>
+                        <small>CSS: background-attachment</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BackgroundClip</strong>
+                        <small>CSS: background-clip</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BackgroundOrigin</strong>
+                        <small>CSS: background-origin</small>
+                    </div>
+                </div>
+                <h4>Typography & Text</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Font</strong>
+                        <small>CSS: font</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FontFamily</strong>
+                        <small>CSS: font-family</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FontSize</strong>
+                        <small>CSS: font-size</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FontWeight</strong>
+                        <small>CSS: font-weight</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FontStyle</strong>
+                        <small>CSS: font-style</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>FontVariant</strong>
+                        <small>CSS: font-variant</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>LineHeight</strong>
+                        <small>CSS: line-height</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>LetterSpacing</strong>
+                        <small>CSS: letter-spacing</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>WordSpacing</strong>
+                        <small>CSS: word-spacing</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TextAlign</strong>
+                        <small>CSS: text-align</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TextDecoration</strong>
+                        <small>CSS: text-decoration</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TextDecorationLine</strong>
+                        <small>CSS: text-decoration-line</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TextDecorationColor</strong>
+                        <small>CSS: text-decoration-color</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TextDecorationStyle</strong>
+                        <small>CSS: text-decoration-style</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TextTransform</strong>
+                        <small>CSS: text-transform</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TextIndent</strong>
+                        <small>CSS: text-indent</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TextOverflow</strong>
+                        <small>CSS: text-overflow</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TextShadow</strong>
+                        <small>CSS: text-shadow</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>WhiteSpace</strong>
+                        <small>CSS: white-space</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>WordBreak</strong>
+                        <small>CSS: word-break</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>OverflowWrap</strong>
+                        <small>CSS: overflow-wrap</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>VerticalAlign</strong>
+                        <small>CSS: vertical-align</small>
+                    </div>
+                </div>
+                <h4>Borders & Outlines</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Border</strong>
+                        <small>CSS: border</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderWidth</strong>
+                        <small>CSS: border-width</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderStyle</strong>
+                        <small>CSS: border-style</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderColor</strong>
+                        <small>CSS: border-color</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderTop</strong>
+                        <small>CSS: border-top</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderRight</strong>
+                        <small>CSS: border-right</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderBottom</strong>
+                        <small>CSS: border-bottom</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderLeft</strong>
+                        <small>CSS: border-left</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderRadius</strong>
+                        <small>CSS: border-radius</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderTopLeftRadius</strong>
+                        <small>CSS: border-top-left-radius</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderTopRightRadius</strong>
+                        <small>CSS: border-top-right-radius</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderBottomLeftRadius</strong>
+                        <small>CSS: border-bottom-left-radius</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderBottomRightRadius</strong>
+                        <small>CSS: border-bottom-right-radius</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Outline</strong>
+                        <small>CSS: outline</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>OutlineWidth</strong>
+                        <small>CSS: outline-width</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>OutlineStyle</strong>
+                        <small>CSS: outline-style</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>OutlineColor</strong>
+                        <small>CSS: outline-color</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>OutlineOffset</strong>
+                        <small>CSS: outline-offset</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BoxShadow</strong>
+                        <small>CSS: box-shadow</small>
+                    </div>
+                </div>
+                <h4>Transforms & Transitions</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Transform</strong>
+                        <small>CSS: transform</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TransformOrigin</strong>
+                        <small>CSS: transform-origin</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Transition</strong>
+                        <small>CSS: transition</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TransitionProperty</strong>
+                        <small>CSS: transition-property</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TransitionDuration</strong>
+                        <small>CSS: transition-duration</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TransitionTimingFunction</strong>
+                        <small>CSS: transition-timing-function</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TransitionDelay</strong>
+                        <small>CSS: transition-delay</small>
+                    </div>
+                </div>
+                <h4>Animations</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Animation</strong>
+                        <small>CSS: animation</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AnimationName</strong>
+                        <small>CSS: animation-name</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AnimationDuration</strong>
+                        <small>CSS: animation-duration</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AnimationTimingFunction</strong>
+                        <small>CSS: animation-timing-function</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AnimationDelay</strong>
+                        <small>CSS: animation-delay</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AnimationIterationCount</strong>
+                        <small>CSS: animation-iteration-count</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AnimationDirection</strong>
+                        <small>CSS: animation-direction</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AnimationFillMode</strong>
+                        <small>CSS: animation-fill-mode</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>AnimationPlayState</strong>
+                        <small>CSS: animation-play-state</small>
+                    </div>
+                </div>
+                <h4>Effects & Filters</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Filter</strong>
+                        <small>CSS: filter</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BackdropFilter</strong>
+                        <small>CSS: backdrop-filter</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>MixBlendMode</strong>
+                        <small>CSS: mix-blend-mode</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>ClipPath</strong>
+                        <small>CSS: clip-path</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Mask</strong>
+                        <small>CSS: mask</small>
+                    </div>
+                </div>
+                <h4>Interactivity & Tables</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Cursor</strong>
+                        <small>CSS: cursor</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>PointerEvents</strong>
+                        <small>CSS: pointer-events</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>UserSelect</strong>
+                        <small>CSS: user-select</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>Resize</strong>
+                        <small>CSS: resize</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>ListStyle</strong>
+                        <small>CSS: list-style</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>ListStyleType</strong>
+                        <small>CSS: list-style-type</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>ListStylePosition</strong>
+                        <small>CSS: list-style-position</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>ListStyleImage</strong>
+                        <small>CSS: list-style-image</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>TableLayout</strong>
+                        <small>CSS: table-layout</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderCollapse</strong>
+                        <small>CSS: border-collapse</small>
+                    </div>
+                    <div class="tag-card">
+                        <strong>BorderSpacing</strong>
+                        <small>CSS: border-spacing</small>
+                    </div>
+                </div>
+                <h4>Fallback</h4>
+                <div class="tags-grid">
+                    <div class="tag-card">
+                        <strong>Custom</strong>
+                        <small>CSS: any property</small>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Metafr Project. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

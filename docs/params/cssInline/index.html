@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Inline Param - Metafr Documentation</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html">Metafr</a>
+            </div>
+            <nav>
+                <a href="../../index.html">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="layout-container" style="min-height: 80vh;">
+        <aside class="sidebar">
+            <div class="sidebar-title">Documentation</div>
+            <ul class="sidebar-menu">
+                <li><a href="../../index.html">Overview</a></li>
+            </ul>
+            <div class="sidebar-title">Components</div>
+            <ul class="sidebar-menu">
+                <li><a href="../../components/scope.html">Scope</a></li>
+                <li><a href="../../components/typography.html">Typography</a></li>
+            </ul>
+            <div class="sidebar-title" style="margin-top: 12px;">Params</div>
+            <ul class="sidebar-menu">
+                <li><a href="index.html" class="active">CSS Inline</a></li>
+                <li><a href="tags.html" style="padding-left: 20px; font-size: 0.85rem;">↳ All Tags</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section class="content-section">
+                <h2>CSS Inline (StyleTag)</h2>
+                <p>The <code>StyleTag</code> enum provides a strongly-typed way to apply inline CSS to your Metafr components. It prevents typos and streamlines the process of styling individual nodes by automatically converting Rust enums to valid CSS properties.</p>
+                
+                <h3 style="margin-top: 24px; margin-bottom: 12px;">Usage</h3>
+                <p>You can generate CSS declarations using the <code>get_tag</code> method on <code>StyleTag</code> variants. Then, use <code>get_style_inline</code> to combine them into a single <code>style</code> parameter that can be applied to any component.</p>
+                
+                <div class="code-block">
+<pre><code>use metafr::params::style_inline::{StyleTag, get_style_inline};
+use metafr::components::typography;
+
+let my_styles = vec![
+    StyleTag::Color.get_tag("red"),
+    StyleTag::MarginTop.get_tag("20px"),
+    StyleTag::Display.get_tag("flex")
+];
+
+let title = typography::typography_create()
+    .set_text("Styled Title")
+    .set_params(vec![
+        get_style_inline(my_styles)
+    ])
+    .build();
+</code></pre>
+                </div>
+
+                <h3 style="margin-top: 32px; margin-bottom: 12px;">Key Features</h3>
+                <ul class="feature-list">
+                    <li><strong>Type-Safe Properties:</strong> Access nearly all standard CSS properties (e.g., <code>StyleTag::MarginTop</code>, <code>StyleTag::Display</code>, <code>StyleTag::JustifyContent</code>) as enum variants.</li>
+                    <li><strong>Auto-formatting:</strong> The enum handles converting CamelCase names into standard kebab-case CSS properties automatically (e.g., <code>MarginTop</code> becomes <code>margin-top</code>).</li>
+                    <li><strong>Custom Fallback:</strong> If a CSS property isn't listed, you can use <code>StyleTag::Custom("your-property")</code> as a fallback.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Metafr Project. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

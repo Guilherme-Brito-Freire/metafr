@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metafr - Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Metafr</a>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#getting-started">Getting Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        <aside class="sidebar">
+            <div class="sidebar-title">Documentation</div>
+            <ul class="sidebar-menu">
+                <li><a href="index.html" class="active">Overview</a></li>
+            </ul>
+            <div class="sidebar-title">Components</div>
+            <ul class="sidebar-menu">
+                <li><a href="components/scope.html">Scope</a></li>
+                <li><a href="components/typography.html">Typography</a></li>
+            </ul>
+            <div class="sidebar-title" style="margin-top: 12px;">Params</div>
+            <ul class="sidebar-menu">
+                <li><a href="params/cssInline/index.html">CSS Inline</a></li>
+                <li><a href="params/cssInline/tags.html" style="padding-left: 20px; font-size: 0.85rem;">↳ All Tags</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section id="hero">
+                <h1>Metafr</h1>
+                <p class="subtitle">A minimalistic Rust framework for server-side HTML rendering and routing, built on top of Axum and Tokio.</p>
+            </section>
+
+            <section id="about" class="content-section">
+                <h2>About</h2>
+                <p>Metafr provides a structured, declarative approach to construct HTML pages using an Abstract Syntax Tree (AST) in Rust. By abstracting away manual HTML string concatenation, it allows developers to build type-safe, component-driven user interfaces directly from the server.</p>
+            </section>
+
+            <section id="features" class="content-section">
+                <h2>Features</h2>
+                <ul class="feature-list">
+                    <li><strong>Declarative Routing:</strong> Easily define routes and map them to HTML documents leveraging Axum's powerful routing capabilities.</li>
+                    <li><strong>AST-Based Rendering:</strong> Construct pages robustly using a tree of <code>Node</code> elements and parameters.</li>
+                    <li><strong>Component System:</strong> Utilize built-in components like <code>typography</code> and <code>scope</code> to compose complex layouts easily.</li>
+                    <li><strong>Axum Integration:</strong> Take full advantage of the performance, ecosystem, and asynchronous runtime (Tokio) provided by Axum.</li>
+                </ul>
+            </section>
+
+            <section id="getting-started" class="content-section">
+                <h2>Getting Started</h2>
+                <p>To use Metafr, simply define your pages, construct your DOM using the provided components, and pass them to the <code>start</code> function.</p>
+                
+                <div class="code-block">
+<pre><code>use metafr::components::{typography, scope};
+use metafr::document::{Document, create_document};
+use metafr::{Html, Page, get, start};
+
+fn main() {
+    let pages = vec![
+        Page {
+            path: "/".to_string(),
+            method: get(|| async { 
+                let home: Document = create_document(
+                    scope::scope_create()
+                    .set_children(vec![
+                        typography::typography_create()
+                            .set_text("Hello World!")
+                            .build(),
+                        typography::typography_create()
+                            .set_text("Welcome to Metafr!")
+                            .build()
+                    ])
+                    .build()
+                );
+
+                Html(home.render())
+            }),
+        }
+    ];
+
+    start(&pages);
+}</code></pre>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Metafr Project. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

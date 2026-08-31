@@ -3,6 +3,8 @@ use metafr::components::{
     scope
 };
 use metafr::document::{Document, create_document};
+use metafr::params::style_inline::StyleTag::BackgroundColor;
+use metafr::params::style_inline::{get_style_inline};
 use metafr::{Html, Page, get, start};
 
 fn main() {
@@ -14,6 +16,11 @@ fn main() {
                 // Home page!
                 let home: Document = create_document(
                     scope::scope_create()
+                    .set_params(vec![
+                        get_style_inline(vec![
+                            BackgroundColor.get_tag("red")
+                        ])
+                    ])
                     .set_children(
                     vec![
                         typography::typography_create()
