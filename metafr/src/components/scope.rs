@@ -6,19 +6,6 @@ pub struct Scope {
     node: Node,
 }
 
-pub fn scope_create() -> Scope {
-    Scope {
-        children: Vec::new(),
-        node: (Node {
-            head_tag: "<div".to_string(),
-            content: "".to_string(),
-            end_tag: "</div>".to_string(),
-            children: None,
-            params: vec![],
-        }),
-    }
-}
-
 impl Scope {
 
     pub fn set_children(mut self, children: Vec<Node>) -> Scope {
@@ -39,5 +26,18 @@ impl Scope {
         self.node.content = content;
         self.node.children = Some(self.children);
         self.node
+    }
+}
+
+pub fn scope_create() -> Scope {
+    Scope {
+        children: Vec::new(),
+        node: (Node {
+            head_tag: "<div".to_string(),
+            content: "".to_string(),
+            end_tag: "</div>".to_string(),
+            children: None,
+            params: vec![],
+        }),
     }
 }
