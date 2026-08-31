@@ -15,6 +15,7 @@ fn main() {
             method: get(|| async { 
                 // Home page!
                 let home: Document = create_document(
+                    "", // Header
                     scope::scope_create()
                     .set_params(vec![
                         get_style_inline(vec![
