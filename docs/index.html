@@ -31,8 +31,10 @@
             </ul>
             <div class="sidebar-title">Components</div>
             <ul class="sidebar-menu">
+                <li><a href="components/br.html">Br</a></li>
                 <li><a href="components/custom_tag.html">Custom Tag</a></li>
                 <li><a href="components/scope.html">Scope</a></li>
+                <li><a href="components/style_tag.html">Style Tag</a></li>
                 <li><a href="components/typography.html">Typography</a></li>
             </ul>
             <div class="sidebar-title" style="margin-top: 12px;">Params</div>
@@ -70,20 +72,24 @@
                 <div class="code-block">
 <pre><code>use metafr::components::{typography, scope};
 use metafr::document::{Document, create_document};
+use metafr::components::typography::TypographyType::H1;
+use metafr::components::typography::TypographyType::P;
 use metafr::{Html, Page, get, start};
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let pages = vec![
         Page {
             path: "/".to_string(),
             method: get(|| async { 
-                let home: Document = create_document(
-                    scope::scope_create()
+                let mut home: Document = create_document(
+                    "&lt;link rel='stylesheet' href='static/style.css'&gt;", // Header
+                    scope::container_create()
                     .set_children(vec![
-                        typography::typography_create()
+                        typography::typography_create(H1)
                             .set_text("Hello World!")
                             .build(),
-                        typography::typography_create()
+                        typography::typography_create(P)
                             .set_text("Welcome to Metafr!")
                             .build()
                     ])
@@ -95,7 +101,7 @@ fn main() {
         }
     ];
 
-    start(&pages);
+    start(&pages).await;
 }</code></pre>
                 </div>
             </section>
