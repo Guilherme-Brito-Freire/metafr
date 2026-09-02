@@ -7,7 +7,7 @@ pub struct Document {
 }
 
 impl Document {
-    pub fn render(self) -> String {
+    pub fn render(&mut self) -> String {
         // Render the code and return a string
         let rendered: String = format!("{}{}{}", self.header, self.content.render(), self.footer);
         rendered

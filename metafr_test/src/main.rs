@@ -10,9 +10,9 @@ fn main() {
         path: "/".to_string(),
         method: get(|| async {
             // Home page!
-            let home: Document = create_document(
+            let mut home: Document = create_document(
                 "<link rel='stylesheet' href='static/style.css'>", // Header
-                scope::scope_create()
+                scope::container_create()
                     .set_children(vec![
                         typography::typography_create(H1)
                             .set_text("Hello World!")

@@ -1,3 +1,4 @@
+#[derive(Clone)]
 pub struct Param{
     param_name:String,
     value:String

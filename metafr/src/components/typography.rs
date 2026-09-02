@@ -28,6 +28,16 @@ impl Typography {
         self
     }
 
+    pub fn add_class(mut self, class_str: &str) -> Typography {
+        self.node.classes.push(class_str.to_string());
+        self
+    }
+
+    pub fn add_class_from_string(mut self, class_str: String) -> Typography {
+        self.node.classes.push(class_str);
+        self
+    }
+
     pub fn build(mut self) -> Node {
         self.node.content = self.text;
         self.node
@@ -59,6 +69,7 @@ pub fn typography_create(typography_type: TypographyType) -> Typography {
             end_tag: format!("</{}>",typography_type.get_tag_open()),
             children: None,
             params: vec![],
+            classes: vec![]
         }),
     }
 }

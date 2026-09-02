@@ -1,3 +1,5 @@
+use std::vec;
+
 use crate::ast::Node;
 use crate::param::Param;
 
@@ -17,6 +19,16 @@ impl CustomTag {
         self
     }
 
+    pub fn add_class(mut self, class_str: &str) -> CustomTag {
+        self.node.classes.push(class_str.to_string());
+        self
+    }
+
+    pub fn add_class_from_string(mut self, class_str: String) -> CustomTag {
+        self.node.classes.push(class_str);
+        self
+    }
+
     pub fn build(mut self) -> Node {
         self.node.content = self.content;
         self.node
@@ -32,6 +44,7 @@ pub fn custom_tag_create(tag: &str) -> CustomTag {
             end_tag: format!("</{}>",tag.to_string()),
             children: None,
             params: vec![],
+            classes: vec![]
         }),
     }
 }
