@@ -63,43 +63,57 @@ Por ser um framework Rust, ele foca na velocidade da aplicação. Quando o softw
 ### 💻 Exemplo / Example (Hello World)
 
 ```rust
-use metafr::{Page, document::{Document, create_document}, get, start };
-use metafr::components::{
-    typography,
-    scope
-};
-use metafr::Html;
+use metafr::components::br::br;
+use metafr::components::typography::TypographyType::{H1, H2};
+use metafr::components::{scope, typography};
+use metafr::document::{Document, create_document};
+use metafr::styling::style_inline::StyleTag::{ AlignItems, Display, FlexDirection, FontFamily, Margin, PaddingTop};
+use metafr::styling::style_tag::{create_style_rule, style_tag_create};
+use metafr::{Html, Page, get, start};
 
 fn main() {
+    let paginas = vec![Page {
+        path: "/".to_string(),
+        method: get(|| async {
+            // Home page!
+            let mut home: Document = create_document(
 
-    let paginas = vec![
-        Page {
-            path: "/".to_string(),
-            method: get(|| async { 
-                // Home page!
-                let home: Document = create_document(
-                    scope::scope_create()
-                    .set_children(
-                    vec![
-                        typography::typography_create()
-                        .set_text("Hello World!")
-                        .build(),
-
-                        typography::typography_create()
-                        .set_text("Hello Github")
-                        .build()
-                    ]
+                //Style Tag
+                &style_tag_create()
+                .set_style(vec![
+                    create_style_rule("*", vec![
+                        Margin.get_tag("0px"),
+                        FontFamily.get_tag("Arial")
+                        ]),
+                    create_style_rule(".center", vec![
+                        Display.get_tag("flex"),
+                        FlexDirection.get_tag("column"),
+                        PaddingTop.get_tag("20dvh"),
+                        AlignItems.get_tag("center")
+                        ])
+                    ],
+                    
                 )
-                    .build()
-                );
+                .build().render(), // Header (only the header need to render!)
 
-                Html(home.render())
-            }),
-        }
-    ];
+                scope::container_create()
+                    .add_class("center")
+                    .set_children(vec![
+                        typography::typography_create(H1)
+                            .set_text("Hello World!")
+                            .build(),
+                        br(),
+                        typography::typography_create(H2)
+                            .set_text("🚀 You are using METAFR! 🚀")
+                            .build()
+                    ])
+                    .build(),
+            );
 
-    start(&paginas);
-
+            Html(home.render())
+        }),
+    }];
+    start(&paginas, vec![]);
 }
 ```
 
