@@ -42,4 +42,4 @@ pub mod document;
 pub mod ast;
 pub mod components;
 pub mod param;
-pub mod params; // Collection
+pub mod styling; // Collection

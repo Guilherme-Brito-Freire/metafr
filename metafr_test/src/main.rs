@@ -1,9 +1,10 @@
-use metafr::components::typography::TypographyType::{H1, P};
+use metafr::components::br::br;
+use metafr::components::typography::TypographyType::{H1, H2};
 use metafr::components::{scope, typography};
 use metafr::document::{Document, create_document};
-use metafr::params::style_inline::StyleTag::Color;
-use metafr::params::style_inline::get_style_inline;
-use metafr::{Html, Page, get, start, static_serve};
+use metafr::styling::style_inline::StyleTag::{ AlignItems, Display, FlexDirection, FontFamily, Margin, PaddingTop};
+use metafr::styling::style_tag::{create_style_rule, style_tag_create};
+use metafr::{Html, Page, get, start};
 
 fn main() {
     let paginas = vec![Page {
@@ -11,16 +12,35 @@ fn main() {
         method: get(|| async {
             // Home page!
             let mut home: Document = create_document(
-                "<link rel='stylesheet' href='static/style.css'>", // Header
+
+                //Style Tag
+                &style_tag_create()
+                .set_style(vec![
+                    create_style_rule("*", vec![
+                        Margin.get_tag("0px"),
+                        FontFamily.get_tag("Arial")
+                        ]),
+                    create_style_rule(".center", vec![
+                        Display.get_tag("flex"),
+                        FlexDirection.get_tag("column"),
+                        PaddingTop.get_tag("20dvh"),
+                        AlignItems.get_tag("center")
+                        ])
+                    ],
+                    
+                )
+                .build().render(), // Header (only the header need to render!)
+
                 scope::container_create()
+                    .add_class("center")
                     .set_children(vec![
                         typography::typography_create(H1)
                             .set_text("Hello World!")
                             .build(),
-                        typography::typography_create(P)
-                            .set_text("Hello Guilherme!")
-                            .set_params(vec![get_style_inline(vec![Color.get_tag("red")])])
-                            .build(),
+                        br(),
+                        typography::typography_create(H2)
+                            .set_text("🚀 You are using METAFR! 🚀")
+                            .build()
                     ])
                     .build(),
             );
@@ -28,9 +48,5 @@ fn main() {
             Html(home.render())
         }),
     }];
-
-    // Start to serve statics files!
-    let static_server = static_serve("./static", "/static");
-
-    start(&paginas, vec![static_server]);
+    start(&paginas, vec![]);
 }
