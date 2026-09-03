@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CustomTag Component - Metafr Documentation</title>
+    <title>Em Component - Metafr Documentation</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +30,8 @@
             <div class="sidebar-title">Components</div>
             <ul class="sidebar-menu">
                 <li><a href="../components/br.html">Br</a></li>
-                <li><a href="../components/custom_tag.html" class="active">Custom Tag</a></li>
-                <li><a href="../components/em.html">Em</a></li>
+                <li><a href="../components/custom_tag.html">Custom Tag</a></li>
+                <li><a href="../components/em.html" class="active">Em</a></li>
                 <li><a href="../components/hr.html">Hr</a></li>
                 <li><a href="../components/midia_a.html">Midia (A)</a></li>
                 <li><a href="../components/midia_img.html">Midia (Img)</a></li>
@@ -49,30 +49,15 @@
 
         <main class="main-content">
             <section class="content-section">
-                <h2>CustomTag Component</h2>
-                <p>The <code>CustomTag</code> component provides a flexible way to create any HTML element dynamically by specifying its tag name during initialization. It maps directly to an HTML <code>&lt;{tag}&gt;</code> element with text content inside.</p>
-                
+                <h2>Em Component</h2>
+                <p>The <code>Em</code> component provides a simple way to create an HTML <code>&lt;em&gt;</code> element to emphasize text.</p>
                 <h3 style="margin-top: 24px; margin-bottom: 12px;">Usage</h3>
-                <p>To use the CustomTag component, utilize the builder pattern starting with <code>custom_tag_create(tag: &str)</code>.</p>
-                
                 <div class="code-block">
-<pre><code>use metafr::components::custom_tag;
+<pre><code>use metafr::components::em::em;
 
-let my_custom_element = custom_tag::custom_tag_create("button")
-    .set_content("Click Me!")
-    .build();
+let emphasized = em();
 </code></pre>
                 </div>
-
-                <h3 style="margin-top: 32px; margin-bottom: 12px;">Methods</h3>
-                <ul class="feature-list">
-                    <li><strong><code>custom_tag_create(tag: &str) -&gt; CustomTag</code></strong>: Initializes a new CustomTag builder with the specified HTML tag name (e.g., "button", "span", "article").</li>
-                    <li><strong><code>set_content(self, text: &str) -&gt; CustomTag</code></strong>: Sets the inner text content of the HTML element. If not set, it defaults to a placeholder.</li>
-                    <li><strong><code>set_params(self, params: Vec&lt;Param&gt;) -&gt; CustomTag</code></strong>: Applies HTML attributes (like class, id, style) to the underlying element.</li>
-                    <li><strong><code>add_class(self, class_str: &str) -&gt; CustomTag</code></strong>: Appends a CSS class to the element.</li>
-                    <li><strong><code>add_class_from_string(self, class_str: String) -&gt; CustomTag</code></strong>: Appends a CSS class to the element using an owned String.</li>
-                    <li><strong><code>build(self) -&gt; Node</code></strong>: Finalizes the component, returning a generic <code>Node</code> ready to be injected into a <code>Document</code> or <code>Scope</code>.</li>
-                </ul>
             </section>
         </main>
     </div>

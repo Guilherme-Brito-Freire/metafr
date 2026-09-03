@@ -1,4 +1,4 @@
-pub mod media;
+pub mod midia;
 
 pub mod typography;
 pub mod scope;

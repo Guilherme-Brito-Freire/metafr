@@ -2,7 +2,7 @@ use metafr::components::br::br;
 use metafr::components::custom_tag::custom_tag_create;
 use metafr::components::em::em;
 use metafr::components::hr::hr;
-use metafr::components::media::{a::a_create, img::img_create};
+use metafr::components::midia::{a::a_create, img::img_create};
 use metafr::components::scope::{container_create, scope_create};
 use metafr::components::structure::{StrutureType, structure_create};
 use metafr::components::typography::{
