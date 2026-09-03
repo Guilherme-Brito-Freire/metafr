@@ -46,7 +46,7 @@ impl Typography {
 
 // Show the avaible options to typography
 impl TypographyType {
-    fn get_tag_open(&self) -> String {
+    fn get(&self) -> String {
         match self {
             TypographyType::H1 => "h1".to_string(),
             TypographyType::H2 => "h2".to_string(),
@@ -64,10 +64,9 @@ pub fn typography_create(typography_type: TypographyType) -> Typography {
     Typography {
         text: ("Hello World!".to_string()),
         node: (Node {
-            head_tag: format!("<{}",typography_type.get_tag_open()),
+            head_tag: format!("<{}",typography_type.get()),
             content: "".to_string(),
-            end_tag: format!("</{}>",typography_type.get_tag_open()),
-            children: None,
+            end_tag: format!("</{}>",typography_type.get()),
             params: vec![],
             classes: vec![]
         }),

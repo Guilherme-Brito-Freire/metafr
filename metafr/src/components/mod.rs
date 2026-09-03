@@ -1,4 +1,9 @@
+pub mod media;
+
 pub mod typography;
 pub mod scope;
 pub mod custom_tag;
 pub mod br;
+pub mod em;
+pub mod hr;
+pub mod structure;

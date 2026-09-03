@@ -42,7 +42,6 @@ pub fn custom_tag_create(tag: &str) -> CustomTag {
             head_tag: format!("<{}",tag.to_string()),
             content: "".to_string(),
             end_tag: format!("</{}>",tag.to_string()),
-            children: None,
             params: vec![],
             classes: vec![]
         }),

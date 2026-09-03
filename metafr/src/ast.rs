@@ -5,7 +5,6 @@ pub struct Node {
     pub(crate) end_tag: String,
     pub(crate) content: String,
     pub(crate) params: Vec<Param>,
-    pub(crate) children: Option<Vec<Node>>,
     pub(crate) classes: Vec<String>
 }
 

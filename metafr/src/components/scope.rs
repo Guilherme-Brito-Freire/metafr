@@ -34,7 +34,6 @@ impl Scope {
             content.push_str(&item.render());
         }
         self.node.content = content;
-        self.node.children = Some(self.children);
         self.node
     }
 }
@@ -48,7 +47,6 @@ pub fn scope_create() -> Scope { // Create the base model
             head_tag: "<div".to_string(),
             content: "".to_string(),
             end_tag: "</div>".to_string(),
-            children: None,
             params: vec![],
             classes: vec![],
         }),
@@ -62,7 +60,6 @@ pub fn container_create() -> Scope { // Container, with margin etc
             head_tag: "<div".to_string(),
             content: "".to_string(),
             end_tag: "</div>".to_string(),
-            children: None,
             params: vec![],
             classes: vec!["container".to_string()],
         }),

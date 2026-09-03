@@ -54,7 +54,6 @@ pub fn style_tag_create() -> StyleTag {
             head_tag: format!("<{}","style"),
             content: "".to_string(),
             end_tag: format!("</{}>","style"),
-            children: None,
             params: vec![],
             classes: vec![]
         }),
