@@ -1,5 +1,7 @@
 use crate::ast::Node;
 use crate::param::Param;
+use crate::styling::style_inline::StyleTag::{AlignItems, BackgroundColor, BoxSizing, Color, Display, FlexDirection, Height, PaddingLeft, PaddingRight, Width};
+use crate::styling::style_inline::get_style_inline;
 
 pub struct Struture {
     children: Vec<Node>,
@@ -70,4 +72,29 @@ pub fn structure_create(structure_type: StrutureType) -> Struture { // Create th
             classes: vec![],
         }),
     }
+}
+
+// Variations
+pub fn nav_styled_create() -> Struture { // Create the base model
+    Struture {
+        children: Vec::new(),
+        node: (Node {
+            head_tag: "<nav".to_string(),
+            content: "".to_string(),
+            end_tag: "</nav>".to_string(),
+            params: vec![],
+            classes: vec![],
+        }),
+    }.set_params(vec![get_style_inline(vec![
+        Width.get_tag("100%"),
+        Height.get_tag("65px"),
+        BackgroundColor.get_tag("#d66b41"),
+        Display.get_tag("flex"),
+        FlexDirection.get_tag("row"),
+        AlignItems.get_tag("center"),
+        PaddingLeft.get_tag("20px"),
+        PaddingRight.get_tag("20px"),
+        BoxSizing.get_tag("border-box"),
+        Color.get_tag("white"),
+    ])])
 }

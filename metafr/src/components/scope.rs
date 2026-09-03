@@ -1,5 +1,7 @@
 use crate::ast::Node;
 use crate::param::Param;
+use crate::styling::style_inline;
+use crate::styling::style_inline::StyleTag::{BoxSizing, MaxWidth, Padding, PaddingLeft, PaddingRight, Width};
 
 pub struct Scope {
     children: Vec<Node>,
@@ -7,7 +9,6 @@ pub struct Scope {
 }
 
 impl Scope {
-
     pub fn set_children(mut self, children: Vec<Node>) -> Scope {
         self.children = children;
         self
@@ -40,7 +41,8 @@ impl Scope {
 
 // Create the Base and Variations
 
-pub fn scope_create() -> Scope { // Create the base model
+pub fn scope_create() -> Scope {
+    // Create the base model
     Scope {
         children: Vec::new(),
         node: (Node {
@@ -53,7 +55,9 @@ pub fn scope_create() -> Scope { // Create the base model
     }
 }
 
-pub fn container_create() -> Scope { // Container, with margin etc
+// Implement a default style
+pub fn container_create() -> Scope {
+    // Container, with margin etc
     Scope {
         children: Vec::new(),
         node: (Node {
@@ -64,4 +68,12 @@ pub fn container_create() -> Scope { // Container, with margin etc
             classes: vec!["container".to_string()],
         }),
     }
+    .set_params(vec![style_inline::get_style_inline(vec![
+        Padding.get_tag("5px"),
+        PaddingLeft.get_tag("20%"),
+        PaddingRight.get_tag("20%"),
+        Width.get_tag("100%"),
+        MaxWidth.get_tag("100%"),
+        BoxSizing.get_tag("border-box")
+    ])])
 }
