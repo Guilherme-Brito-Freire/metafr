@@ -4,7 +4,7 @@ use metafr::components::em::em;
 use metafr::components::hr::hr;
 use metafr::components::midia::{a::a_create, img::img_create};
 use metafr::components::scope::{container_create, scope_create};
-use metafr::components::structure::{StrutureType, nav_styled_create, structure_create};
+use metafr::components::structure::{StrutureType, footer_styled_create, nav_styled_create, structure_create};
 use metafr::components::typography::{
     TypographyType::{H1, H2, H3, P, Span},
     typography_create,
@@ -130,15 +130,15 @@ fn main() {
                                     ])
                                     .build(),
                                 hr(),
-                                structure_create(StrutureType::Footer)
+                            ])
+                            .build(),
+                            footer_styled_create()
                                     .set_children(vec![
                                         typography_create(P)
                                             .set_text("Footer structure tag")
                                             .build(),
                                     ])
                                     .build(),
-                            ])
-                            .build(),
                     ])
                     .build(),
             );

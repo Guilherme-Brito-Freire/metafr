@@ -98,3 +98,28 @@ pub fn nav_styled_create() -> Struture { // Create the base model
         Color.get_tag("white"),
     ])])
 }
+
+// Variations
+pub fn footer_styled_create() -> Struture { // Create the base model
+    Struture {
+        children: Vec::new(),
+        node: (Node {
+            head_tag: "<footer".to_string(),
+            content: "".to_string(),
+            end_tag: "</footer>".to_string(),
+            params: vec![],
+            classes: vec![],
+        }),
+    }.set_params(vec![get_style_inline(vec![
+        Width.get_tag("100%"),
+        Height.get_tag("65px"),
+        BackgroundColor.get_tag("#575757"),
+        Display.get_tag("flex"),
+        FlexDirection.get_tag("row"),
+        AlignItems.get_tag("center"),
+        PaddingLeft.get_tag("20px"),
+        PaddingRight.get_tag("20px"),
+        BoxSizing.get_tag("border-box"),
+        Color.get_tag("white"),
+    ])])
+}
