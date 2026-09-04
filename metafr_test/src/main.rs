@@ -46,7 +46,7 @@ fn main() {
                 scope_create()
                     .set_children(vec![
 
-                        nav_styled_create()
+                        nav_styled_create("#e1a441")
                         .set_children(vec![
                             typography_create(H1)
                             .set_text("Hello World!")
@@ -132,7 +132,7 @@ fn main() {
                                 hr(),
                             ])
                             .build(),
-                            footer_styled_create()
+                            footer_styled_create("#474747")
                                     .set_children(vec![
                                         typography_create(P)
                                             .set_text("Footer structure tag")

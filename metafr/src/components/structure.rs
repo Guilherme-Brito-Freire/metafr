@@ -75,7 +75,7 @@ pub fn structure_create(structure_type: StrutureType) -> Struture { // Create th
 }
 
 // Variations
-pub fn nav_styled_create() -> Struture { // Create the base model
+pub fn nav_styled_create(color: &str) -> Struture { // Create the base model
     Struture {
         children: Vec::new(),
         node: (Node {
@@ -88,7 +88,7 @@ pub fn nav_styled_create() -> Struture { // Create the base model
     }.set_params(vec![get_style_inline(vec![
         Width.get_tag("100%"),
         Height.get_tag("65px"),
-        BackgroundColor.get_tag("#d66b41"),
+        BackgroundColor.get_tag(color),
         Display.get_tag("flex"),
         FlexDirection.get_tag("row"),
         AlignItems.get_tag("center"),
@@ -100,7 +100,7 @@ pub fn nav_styled_create() -> Struture { // Create the base model
 }
 
 // Variations
-pub fn footer_styled_create() -> Struture { // Create the base model
+pub fn footer_styled_create(color: &str) -> Struture { // Create the base model
     Struture {
         children: Vec::new(),
         node: (Node {
@@ -113,7 +113,7 @@ pub fn footer_styled_create() -> Struture { // Create the base model
     }.set_params(vec![get_style_inline(vec![
         Width.get_tag("100%"),
         Height.get_tag("65px"),
-        BackgroundColor.get_tag("#575757"),
+        BackgroundColor.get_tag(color),
         Display.get_tag("flex"),
         FlexDirection.get_tag("row"),
         AlignItems.get_tag("center"),

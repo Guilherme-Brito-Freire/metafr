@@ -60,6 +60,23 @@ let header = structure_create(StrutureType::Header)
     .build();
 </code></pre>
                 </div>
+                
+                <h3 style="margin-top: 32px; margin-bottom: 12px;">Methods</h3>
+                <ul class="feature-list">
+                    <li><strong><code>structure_create(structure_type: StrutureType) -&gt; Struture</code></strong>: Initializes a new Structure builder for the specified semantic tag.</li>
+                    <li><strong><code>set_children(self, children: Vec&lt;Node&gt;) -&gt; Struture</code></strong>: Sets the child nodes that will be rendered inside this structure.</li>
+                    <li><strong><code>set_params(self, params: Vec&lt;Param&gt;) -&gt; Struture</code></strong>: Applies HTML attributes (like class, id, style) to the underlying element.</li>
+                    <li><strong><code>add_class(self, class_str: &amp;str) -&gt; Struture</code></strong>: Appends a CSS class to the element.</li>
+                    <li><strong><code>add_class_from_string(self, class_str: String) -&gt; Struture</code></strong>: Appends a CSS class to the element using an owned String.</li>
+                    <li><strong><code>build(self) -&gt; Node</code></strong>: Finalizes the component, rendering children to HTML and returning a generic <code>Node</code>.</li>
+                </ul>
+
+                <h3 style="margin-top: 32px; margin-bottom: 12px;">Styled Components</h3>
+                <p>The Structure component also provides pre-styled variations for common layout needs:</p>
+                <ul class="feature-list">
+                    <li><strong><code>nav_styled_create(color: &amp;str) -&gt; Struture</code></strong>: Creates a pre-styled <code>&lt;nav&gt;</code> component with a specific background color, flexbox layout, and standard height/padding.</li>
+                    <li><strong><code>footer_styled_create(color: &amp;str) -&gt; Struture</code></strong>: Creates a pre-styled <code>&lt;footer&gt;</code> component with a specific background color, flexbox layout, and standard height/padding.</li>
+                </ul>
             </section>
         </main>
     </div>
