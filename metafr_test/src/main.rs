@@ -9,6 +9,8 @@ use metafr::components::typography::{
     TypographyType::{H1, H2, H3, P, Span},
     typography_create,
 };
+use metafr::components::list::list::{list_create, ListType};
+use metafr::components::list::list_item::{list_item_create, ListItemType};
 use metafr::document::{Document, create_document};
 use metafr::styling::style_inline::StyleTag::{
     AlignItems, Display, FlexDirection, FontFamily, Gap, Margin, Padding, PaddingTop,
@@ -126,6 +128,27 @@ fn main() {
                                             .build(),
                                         custom_tag_create("button")
                                             .set_content("This is a custom tag (button)")
+                                            .build(),
+                                    ])
+                                    .build(),
+                                hr(),
+                                structure_create(StrutureType::Section)
+                                    .add_class("box")
+                                    .set_children(vec![
+                                        typography_create(H2).set_text("Lists").build(),
+                                        list_create(ListType::Ul)
+                                            .set_children(vec![
+                                                list_item_create(ListItemType::Li)
+                                                    .set_children(vec![
+                                                        typography_create(Span).set_text("Item 1").build(),
+                                                    ])
+                                                    .build(),
+                                                list_item_create(ListItemType::Li)
+                                                    .set_children(vec![
+                                                        typography_create(Span).set_text("Item 2").build(),
+                                                    ])
+                                                    .build(),
+                                            ])
                                             .build(),
                                     ])
                                     .build(),

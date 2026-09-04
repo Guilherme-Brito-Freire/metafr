@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Component - Metafr Documentation</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">Metafr</a>
+            </div>
+            <nav>
+                <a href="../index.html">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="layout-container" style="min-height: 80vh;">
+        <aside class="sidebar">
+            <div class="sidebar-title">Documentation</div>
+            <ul class="sidebar-menu">
+                <li><a href="../index.html">Overview</a></li>
+            </ul>
+            <div class="sidebar-title">Components</div>
+            <ul class="sidebar-menu">
+                <li><a href="../components/br.html">Br</a></li>
+                <li><a href="../components/custom_tag.html">Custom Tag</a></li>
+                <li><a href="../components/em.html">Em</a></li>
+                <li><a href="../components/hr.html">Hr</a></li>
+                <li><a href="../components/list.html" class="active">List</a></li>
+                <li><a href="../components/midia_a.html">Midia (A)</a></li>
+                <li><a href="../components/midia_img.html">Midia (Img)</a></li>
+                <li><a href="../components/scope.html">Scope</a></li>
+                <li><a href="../components/structure.html">Structure</a></li>
+                <li><a href="../components/style_tag.html">Style Tag</a></li>
+                <li><a href="../components/typography.html">Typography</a></li>
+            </ul>
+<div class="sidebar-title" style="margin-top: 12px;">Params</div>
+            <ul class="sidebar-menu">
+                <li><a href="../params/cssInline/index.html">CSS Inline</a></li>
+                <li><a href="../params/cssInline/tags.html" style="padding-left: 20px; font-size: 0.85rem;">↳ All Tags</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section class="content-section">
+                <h2>List Component</h2>
+                <p>The <code>List</code> and <code>ListItem</code> components are used to create standard HTML lists (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;dl&gt;</code>) and their corresponding items (<code>&lt;li&gt;</code>, <code>&lt;dt&gt;</code>/<code>&lt;dd&gt;</code>).</p>
+                
+                <h3 style="margin-top: 24px; margin-bottom: 12px;">Usage</h3>
+                <p>To use these components, import <code>list_create</code> and <code>list_item_create</code> along with their types, and build them as part of your component tree.</p>
+                
+                <div class="code-block">
+<pre><code>use metafr::components::list::list::{list_create, ListType};
+use metafr::components::list::list_item::{list_item_create, ListItemType};
+use metafr::components::typography::{typography_create, TypographyType::Span};
+
+let my_list = list_create(ListType::Ul)
+    .set_children(vec![
+        list_item_create(ListItemType::Li)
+            .set_children(vec![
+                typography_create(Span).set_text("Item 1").build(),
+            ])
+            .build(),
+        list_item_create(ListItemType::Li)
+            .set_children(vec![
+                typography_create(Span).set_text("Item 2").build(),
+            ])
+            .build(),
+    ])
+    .build();
+</code></pre>
+                </div>
+
+                <h3 style="margin-top: 32px; margin-bottom: 12px;">Methods (List)</h3>
+                <ul class="feature-list">
+                    <li><strong><code>list_create(list_type: ListType) -&gt; List</code></strong>: Initializes a new List builder of a specific type (e.g. <code>Ul</code>, <code>Ol</code>, <code>Dl</code>).</li>
+                    <li><strong><code>set_children(self, children: Vec&lt;Node&gt;) -&gt; List</code></strong>: Sets the child nodes (usually ListItems) that will be rendered inside this list.</li>
+                    <li><strong><code>set_params(self, params: Vec&lt;Param&gt;) -&gt; List</code></strong>: Applies HTML attributes (like class, style, etc.) to the underlying list tag.</li>
+                    <li><strong><code>add_class(self, class_str: &amp;str) -&gt; List</code></strong>: Appends a CSS class to the element.</li>
+                    <li><strong><code>add_class_from_string(self, class_str: String) -&gt; List</code></strong>: Appends a CSS class to the element using an owned String.</li>
+                    <li><strong><code>build(self) -&gt; Node</code></strong>: Finalizes the component and returns a <code>Node</code>.</li>
+                </ul>
+
+                <h3 style="margin-top: 32px; margin-bottom: 12px;">Methods (ListItem)</h3>
+                <ul class="feature-list">
+                    <li><strong><code>list_item_create(list_item_type: ListItemType) -&gt; ListItem</code></strong>: Initializes a new ListItem builder of a specific type (e.g. <code>Li</code>, <code>Dl</code>).</li>
+                    <li><strong><code>set_children(self, children: Vec&lt;Node&gt;) -&gt; ListItem</code></strong>: Sets the child nodes (content) for this list item.</li>
+                    <li><strong><code>set_params(self, params: Vec&lt;Param&gt;) -&gt; ListItem</code></strong>: Applies HTML attributes (like class, style, etc.) to the underlying list item tag.</li>
+                    <li><strong><code>add_class(self, class_str: &amp;str) -&gt; ListItem</code></strong>: Appends a CSS class to the element.</li>
+                    <li><strong><code>add_class_from_string(self, class_str: String) -&gt; ListItem</code></strong>: Appends a CSS class to the element using an owned String.</li>
+                    <li><strong><code>build(self) -&gt; Node</code></strong>: Finalizes the component and returns a <code>Node</code>.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Metafr Project. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
